@@ -1,8 +1,6 @@
-# tech-app
-## POSSEのカリキュラムサポートを目的にアプリ開発
+# template_ph3_website_private
 
-いつも通りgit cloneをしたらtech-appディレクトリで以下のコマンドを実行してください。１行１行実行してね。
-
+## 環境構築手法
 
 以下の内容を、.env.exampleと同じ階層に.envファイルを作成し、貼り付けてください。
 ```console
@@ -67,7 +65,7 @@ VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
 ```
 
-
+## 以下のコマンドを一行ずつ実行してください
 
 ```console
 docker-compose build --no-cache
@@ -96,4 +94,4 @@ chromeのリンク書くところにlocalhostって入れてもらえれば大�
 ## commit命名規則
 以下に従ってやろ
 ![参考画像](./src/public/img/Screen%20Shot%202023-03-07%20at%2023.43.26.png)
-# template_ph3_website_private
+
