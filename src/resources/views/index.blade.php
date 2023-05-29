@@ -7,19 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>POSSE 初めてのWeb制作</title>
   <!-- スタイルシート読み込み -->
-  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="{{ asset('css/common.css') }}">
   <!-- Google Fonts読み込み -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
     rel="stylesheet">
-  <script src=".js/common.js" defer></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+  <script src="{{ asset('js/common.js')}}" defer></script>
 </head>
 
 <body>
   <header id="js-header" class="l-header p-header">
-    <div class="p-header__logo"><img src="./assets/img/logo.svg" alt="POSSE"></div>
+    <div class="p-header__logo"><img src="{{ asset('img/logo.svg')}}" alt="POSSE"></div>
     <button class="p-header__button" id="js-headerButton"></button>
     <div class="p-header__inner">
       <nav class="p-header__nav">
@@ -66,7 +68,7 @@
           <span class="p-top-hero__body__catchcopy">自分史上最高<br>を仲間と。</span>
         </div>
         <picture class="p-top-hero__image">
-          <img src="./assets/img/img-hero.jpg" alt="">
+          <img src="{{ asset("./img/components/img-hero.jpg")}}" alt="">
         </picture>
         <div class="p-top-hero__scroll">Scroll Down</div>
       </div>
@@ -81,7 +83,7 @@
           </h2>
           <div class="p-top-about__body">
             <picture class="p-top-about__image">
-              <img src="./assets/img/img-about.jpg" alt="POSSEメンバー集合写真">
+              <img src="{{ asset("./img/components/img-about.jpg")}}" alt="POSSEメンバー集合写真">
             </picture>
             <div class="p-top-about__content">
               <p>
@@ -126,7 +128,7 @@
     <div class="l-footer__inner">
       <div class="p-footer__siteinfo">
         <span class="p-footer__logo">
-          <img src="./assets/img/logo.svg" alt="POSSE">
+          <img src="{{ asset("img/logo.svg")}}" alt="POSSE">
         </span>
         <a href="https://posse-ap.com/" target="_blank" rel="noopener noreferrer"
           class="p-footer__siteinfo__link">POSSE公式サイト</a>
