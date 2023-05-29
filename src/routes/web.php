@@ -27,5 +27,5 @@ Route::get('/quiz', function () {
 
 // 管理者ページのディレクトリ
 Route::get('/admin', function () {
-    return view('admin');
+    return view('admin/index');
 })->name('admin');
