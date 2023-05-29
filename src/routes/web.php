@@ -13,8 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+// topページのディレクトリ
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('index');
 
+// quizページのディレクトリ
+Route::get('/quiz', function () {
+    return view('quiz');
+})->name('quiz');
 
+// 管理者ページのディレクトリ
+Route::get('/admin', function () {
+    return view('admin/index');
+})->name('admin');

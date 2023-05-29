@@ -81,6 +81,7 @@ php artisan config:cache
 composer install
 php artisan migrate
 php artisan db:seed
+php artisan serve
 ```
 
 npm install を実行してから
