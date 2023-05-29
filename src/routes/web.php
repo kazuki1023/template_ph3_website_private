@@ -24,3 +24,8 @@ Route::get('/', function () {
 Route::get('/quiz', function () {
     return view('quiz');
 })->name('quiz');
+
+// 管理者ページのディレクトリ
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
