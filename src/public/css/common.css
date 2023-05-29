@@ -535,7 +535,7 @@ body {
   margin-top: 64px;
 }
 .p-line__body {
-  background: url(../img/bg-line.jpg) center center/cover;
+  background: url(../img/components/bg-line.jpg) center center/cover;
   border-radius: 28px;
   overflow: hidden;
   padding: 42px 24px;
@@ -676,7 +676,7 @@ body {
 }
 
 .p-quiz-hero {
-  background: url(../img/quiz/sp/bg-hero.jpg) center center/cover;
+  background: url(../img/components/bg-hero.jpg) center center/cover;
 }
 
 .p-quiz-container {
@@ -1005,7 +1005,7 @@ body {
     margin-top: 42px;
   }
   .p-quiz-hero {
-    background-image: url(../img/quiz/bg-hero.jpg);
+    background-image: url(../img/components/bg-hero.jpg);
   }
   .p-quiz-container {
     margin-top: 120px;

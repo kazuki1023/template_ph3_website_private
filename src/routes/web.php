@@ -18,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 // topページのディレクトリ
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
+// quizページのディレクトリ
+Route::get('/quiz', function () {
+    return view('quiz');
+})->name('quiz');
