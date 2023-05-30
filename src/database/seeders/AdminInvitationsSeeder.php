@@ -14,11 +14,11 @@ class AdminInvitationsSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('user_invitations')->insert([
+        DB::table('admin_invitations')->insert([
             'user_id' => 1,
             'invited_at' => now()->addDay(),
             'activated_at' => now(),
-            'token' => 'token',
+            'token' => 0,
         ]);
     }
 }

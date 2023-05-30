@@ -17,7 +17,7 @@ return new class extends Migration
             $table->datetime('invited_at')->default(now());
             $table->datetime('activated_at')->nullable();
             $table->string('token', 255);
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('admin')->onDelete('cascade');
             $table->timestamps();
         });
     }
