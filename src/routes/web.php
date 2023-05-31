@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ChoiceController;
+use App\Http\Controllers\AdminInvitationsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +31,9 @@ Route::get('/quiz', function () {
 })->name('quiz');
 
 // 管理者ページのディレクトリ
-Route::get('/admin', function () {
-    return view('admin/index');
-})->name('admin');
+Route::get('/admin', [QuestionController::class, 'show'] )->name('admin');
+
+// 管理者ページのログインページのディレクトリ
+// Route::get('/admin/login', function () {
+//     return view('admin/login');
+// })->name('admin.login');
