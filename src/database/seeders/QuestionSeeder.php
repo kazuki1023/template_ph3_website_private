@@ -14,24 +14,22 @@ class QuestionSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('questions')->insert([
-            'content' => 'What is the biggest city of the Philippines?',
-            'image' => "sample.png",
-            'supplement' => 'Manila is the second biggest city of the Philippines.',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ],[
-            'content' => 'What is the biggest city of the Japan?',
-            'image' => "sample.png",
-            'supplement' => 'Osaka is the second biggest city of the Japan.',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ], [
-            'content' => 'What is the biggest city of the China?',
-            'image' => "sample.png",
-            'supplement' => '上海 is the second biggest city of the China.',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        $questions = [
+            [
+                'content' => 'What is the biggest city of the Philippines?',
+                'image' => "sample.png",
+                'supplement' => 'Manila is the second biggest city of the Philippines.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'content' => 'What is the biggest city of Japan?',
+                'image' => "sample.png",
+                'supplement' => 'Osaka is the second biggest city of Japan.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ];
+        DB::table('questions')->insert($questions);
     }
 }

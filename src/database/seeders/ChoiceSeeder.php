@@ -14,7 +14,7 @@ class ChoiceSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table("choices")->insert([
+        $choices = [[
             'question_id' => 1,
             'name' => 'Manila',
             'valid' => 1,
@@ -50,7 +50,8 @@ class ChoiceSeeder extends Seeder
             'valid' => 0,
             'created_at' => now(),
             'updated_at' => now(),
-        ]);
+        ]];
+        DB::table("choices")->insert($choices);
     }
 
 }
