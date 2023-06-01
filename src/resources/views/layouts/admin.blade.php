@@ -8,7 +8,7 @@
   @include('components.admin.header')
   <!-- /.l-header .p-header -->
   @include('components.admin.sidebar')
-  <main class="pt-20 pl-64 bg-gray-400">
+  <main class="pt-20 pl-64 bg-gray-400 h-full">
     @yield('content')
   </main>
 </body>
