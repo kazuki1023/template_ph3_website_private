@@ -53,7 +53,7 @@
                         選択肢3
                     </td>
                     <td class="px-6 py-4">
-                        <a href="http://localhost/admin/detail?id={{ $question->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">詳細</a>
+                        <a href="http://localhost/admin/detail/{{ $question->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">詳細</a>
                     </td>
                 </tr>
                 @endforeach
