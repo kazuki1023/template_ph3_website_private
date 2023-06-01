@@ -11,7 +11,7 @@ class QuestionController extends Controller
     //
     public function show()
     {
-        $questions = Question::find(1)->choices();
+        $questions = Question::all();
         return view('admin.index', ['questions' => $questions]);
     }
 }
