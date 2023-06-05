@@ -34,7 +34,7 @@ Route::get('/quiz', function () {
 Route::get('/admin', [QuestionController::class, 'show'] )->name('admin');
 
 // 各問題詳細のルート
-Route::get('/admin/detail/{id}', [QuestionController::class, 'show'] )->name('admin.detail');
+Route::get('/admin/detail/{id}', [QuestionController::class, 'detail'] )->name('admin.detail');
 
 // 管理者ページのログインページのルート
 // Route::get('/admin/login', function () {
