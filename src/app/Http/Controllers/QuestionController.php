@@ -19,7 +19,8 @@ class QuestionController extends Controller
     public function detail($id)
     {
         $question = Question::find($id);
-        return view('admin.detail', ['question' => $question]);
+        $choices = $question->choices;
+        return view('admin.detail', ['question' => $question , 'choices' => $choices]);
     }
 
     //問題を削除する

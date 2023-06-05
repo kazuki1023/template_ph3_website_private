@@ -35,7 +35,7 @@
                         選択肢１
                     </th>
                     <td class="px-6 py-4">
-                        選択肢１
+                        {{ $choices[0]->name }}
                     </td>
                 </tr>
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -43,7 +43,7 @@
                         選択肢２
                     </th>
                     <td class="px-6 py-4">
-                        選択肢２
+                        {{ $choices[1]->name }}
                     </td>
                 </tr>
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -51,7 +51,7 @@
                         選択肢３
                     </th>
                     <td class="px-6 py-4">
-                        選択肢３
+                        {{ $choices[2]->name }}
                     </td>
                 </tr>
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
