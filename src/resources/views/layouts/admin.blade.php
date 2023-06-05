@@ -11,5 +11,6 @@
   <main class="pt-20 pl-64 h-full">
     @yield('content')
   </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 </html>

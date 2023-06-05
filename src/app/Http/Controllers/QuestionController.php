@@ -21,4 +21,12 @@ class QuestionController extends Controller
         $question = Question::find($id);
         return view('admin.detail', ['question' => $question]);
     }
+
+    //問題を削除する
+    public function delete($id)
+    {
+        $question = Question::find($id);
+        $question->delete();
+        return redirect()->route('admin');
+    }
 }
