@@ -20,20 +20,23 @@ use App\Http\Controllers\AdminInvitationsController;
 
 
 
-// topページのディレクトリ
+// topページのルート
 Route::get('/', function () {
     return view('index');
 })->name('index');
 
-// quizページのディレクトリ
+// quizページのルート
 Route::get('/quiz', function () {
     return view('quiz');
 })->name('quiz');
 
-// 管理者ページのディレクトリ
+// 管理者ページのルート
 Route::get('/admin', [QuestionController::class, 'show'] )->name('admin');
 
-// 管理者ページのログインページのディレクトリ
+// 各問題詳細のルート
+Route::get('/admin/detail/{id}', [QuestionController::class, 'detail'] )->name('admin.detail');
+
+// 管理者ページのログインページのルート
 // Route::get('/admin/login', function () {
 //     return view('admin/login');
 // })->name('admin.login');
