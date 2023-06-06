@@ -38,4 +38,21 @@ class QuestionController extends Controller
         $choices = $question->choices;
         return view('admin.edit', ['question' => $question, 'choices' => $choices]);
     }
+
+    // 問題を更新する
+    public function update($id, Request $request)
+    {
+        $question = Question::find($id);
+        $question->content = $request->content;
+        $question->supplement = $request->supplement;
+        // $question->updated_at = $request-;
+        $question->save();
+
+        $choices = $question->choices;
+        foreach ($choices as $choice) {
+            $choice->name = $request->input('choice' . $choice->id);
+            $choice->save();
+        }
+        return redirect()->route('admin');
+    }
 }

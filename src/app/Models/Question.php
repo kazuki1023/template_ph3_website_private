@@ -11,6 +11,7 @@ class Question extends Model
 {
     use HasFactory;
 
+    public $timestamps = true;
     public function choices() : HasMany
     {
         return $this->hasMany(Choice::class);
