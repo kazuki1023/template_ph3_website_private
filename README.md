@@ -9,6 +9,7 @@ APP_ENV=local
 APP_KEY=base64:F5Fsngk5KikeTibejhJlh3NPHYn3fxyecf1mj4WZipc=
 APP_DEBUG=true
 APP_URL=http://localhost
+APP_TIMEZONE=Asia/Tokyo
 
 LOG_CHANNEL=stack
 LOG_DEPRECATIONS_CHANNEL=null
