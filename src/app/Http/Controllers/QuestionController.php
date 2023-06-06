@@ -35,6 +35,7 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::find($id);
-        return view('admin.edit', ['question' => $question]);
+        $choices = $question->choices;
+        return view('admin.edit', ['question' => $question, 'choices' => $choices]);
     }
 }

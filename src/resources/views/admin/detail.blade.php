@@ -30,30 +30,16 @@
                         {{ $question->content }}
                     </td>
                 </tr>
+                @foreach( $choices as $choice )
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        選択肢１
+                        選択肢{{ $choice->id }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ $choices[0]->name }}
+                        {{ $choice->name }}
                     </td>
                 </tr>
-                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        選択肢２
-                    </th>
-                    <td class="px-6 py-4">
-                        {{ $choices[1]->name }}
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        選択肢３
-                    </th>
-                    <td class="px-6 py-4">
-                        {{ $choices[2]->name }}
-                    </td>
-                </tr>
+                @endforeach
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         画像
