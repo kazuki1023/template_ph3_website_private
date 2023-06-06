@@ -19,7 +19,8 @@ class QuestionController extends Controller
     public function detail($id)
     {
         $question = Question::find($id);
-        return view('admin.detail', ['question' => $question]);
+        $choices = $question->choices;
+        return view('admin.detail', ['question' => $question , 'choices' => $choices]);
     }
 
     //問題を削除する
@@ -28,5 +29,30 @@ class QuestionController extends Controller
         $question = Question::find($id);
         $question->delete();
         return redirect()->route('admin');
+    }
+
+    //問題を編集する
+    public function edit($id)
+    {
+        $question = Question::find($id);
+        $choices = $question->choices;
+        return view('admin.edit', ['question' => $question, 'choices' => $choices]);
+    }
+
+    // 問題を更新する
+    public function update($id, Request $request)
+    {
+        $question = Question::find($id);
+        $question->content = $request->content;
+        $question->supplement = $request->supplement;
+        // $question->updated_at = $request-;
+        $question->save();
+
+        $choices = $question->choices;
+        foreach ($choices as $choice) {
+            $choice->name = $request->input('choice' . $choice->id);
+            $choice->save();
+        }
+        return redirect()->route('admin.detail', ['id' => $id]);
     }
 }

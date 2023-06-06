@@ -39,6 +39,11 @@ Route::get('/admin/detail/{id}', [QuestionController::class, 'detail'] )->name('
 // 詳細画面で削除する時のルート
 Route::get('/admin/delete/{id}', [QuestionController::class, 'delete'] )->name('admin.delete');
 
+// 詳細画面で編集する時のルート
+Route::get('/admin/edit/{id}', [QuestionController::class, 'edit'] )->name('admin.edit');
+
+// 詳細画面で更新する時のルート
+Route::post('/admin/update/{id}', [QuestionController::class, 'update'] )->name('admin.update');
 // 管理者ページのログインページのルート
 // Route::get('/admin/login', function () {
 //     return view('admin/login');
