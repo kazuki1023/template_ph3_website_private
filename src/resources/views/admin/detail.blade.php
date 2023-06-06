@@ -16,10 +16,10 @@
             <tbody>
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        問題名
+                        問題番号
                     </th>
                     <td class="px-6 py-4">
-                        Silver
+                        {{ $question->id }}
                     </td>
                 </tr>
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -30,10 +30,15 @@
                         {{ $question->content }}
                     </td>
                 </tr>
-                @foreach( $choices as $choice )
+                @foreach( $choices as $i => $choice )
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        選択肢{{ $choice->id }}
+                        選択肢{{ $i + 1 }}
+                        @if( $choice->valid == 1 )
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">正解</span>
+                        @else
+                        <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">不正解</span>
+                        @endif
                     </th>
                     <td class="px-6 py-4">
                         {{ $choice->name }}

@@ -51,8 +51,10 @@ class QuestionController extends Controller
         $choices = $question->choices;
         foreach ($choices as $choice) {
             $choice->name = $request->input('choice' . $choice->id);
+            $choice->valid = $choice->id == $request->input('list-radio') ? 1 : 0;
             $choice->save();
         }
+        // 正解の選択肢を更新する
         return redirect()->route('admin.detail', ['id' => $id]);
     }
 }
