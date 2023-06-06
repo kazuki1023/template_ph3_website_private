@@ -53,6 +53,6 @@ class QuestionController extends Controller
             $choice->name = $request->input('choice' . $choice->id);
             $choice->save();
         }
-        return redirect()->route('admin');
+        return redirect()->route('admin.detail', ['id' => $id]);
     }
 }
