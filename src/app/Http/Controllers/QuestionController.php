@@ -57,4 +57,10 @@ class QuestionController extends Controller
         // 正解の選択肢を更新する
         return redirect()->route('admin.detail', ['id' => $id]);
     }
+
+    // 問題作成が面を表示する
+    public function create()
+    {
+        return view('admin.create');
+    }
 }

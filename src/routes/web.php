@@ -44,6 +44,10 @@ Route::get('/admin/edit/{id}', [QuestionController::class, 'edit'] )->name('admi
 
 // 詳細画面で更新する時のルート
 Route::post('/admin/update/{id}', [QuestionController::class, 'update'] )->name('admin.update');
+// 問題作成画面のルート
+Route::get('/admin/create', function () {
+    return view('admin.create');
+})->name('admin.create');
 // 管理者ページのログインページのルート
 // Route::get('/admin/login', function () {
 //     return view('admin/login');
