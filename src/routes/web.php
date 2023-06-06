@@ -48,6 +48,8 @@ Route::post('/admin/update/{id}', [QuestionController::class, 'update'] )->name(
 Route::get('/admin/create', function () {
     return view('admin.create');
 })->name('admin.create');
+// 問題を作成する時のルート
+Route::post('/admin/store', [QuestionController::class, 'store'] )->name('admin.store');
 // 管理者ページのログインページのルート
 // Route::get('/admin/login', function () {
 //     return view('admin/login');

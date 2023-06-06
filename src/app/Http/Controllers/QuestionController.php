@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Choice;
 
 class QuestionController extends Controller
 {
@@ -20,7 +23,7 @@ class QuestionController extends Controller
     {
         $question = Question::find($id);
         $choices = $question->choices;
-        return view('admin.detail', ['question' => $question , 'choices' => $choices]);
+        return view('admin.detail', ['question' => $question, 'choices' => $choices]);
     }
 
     //問題を削除する
@@ -58,9 +61,47 @@ class QuestionController extends Controller
         return redirect()->route('admin.detail', ['id' => $id]);
     }
 
-    // 問題作成が面を表示する
+    // 問題作成画面を表示する
     public function create()
     {
         return view('admin.create');
+    }
+
+    // 問題を作成する
+    public function store(Request $request)
+    {
+        $question = new Question();
+        $question->content = $request->content;
+        $question->supplement = $request->supplement;
+        // 画像をアップロード
+        $heroImage = $request->file("image");
+
+        if ($heroImage) {
+            $dirPathHero = storage_path("app/public/img/questions");
+            if (!File::exists($dirPathHero)) {
+                File::makeDirectory($dirPathHero, 0777, true);
+            }
+
+            $imageExtension = $heroImage->getClientOriginalExtension();
+            $imagePathHero =  uniqid() . "." . $imageExtension;
+            Storage::disk('public')->put("img/questions" . $heroImage, $imagePathHero, 'public');
+
+            // 保存した画像パスをデータベースに保存
+            $question->image = $imagePathHero;
+        }
+        $question->save();
+
+
+        $choices = [];
+        $selectedChoiceId = $request->input('list-radio');
+        for ($i = 1; $i <= 3; $i++) {
+            $choice = new Choice();
+            $choice->question_id = $question->id;
+            $choice->name = $request->input('choice' . $i);
+            $choice->valid = ($i == $selectedChoiceId) ? 1 : 0;
+            $choice->save();
+            $choices[] = $choice;
+        }
+        return redirect()->route('admin', ['question' => $question, 'choices' => $choices]);
     }
 }
