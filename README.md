@@ -77,11 +77,9 @@ docker-compose exec phpfpm bash
 以下は、bashでrootの中に入ったと思うので、そこで実行してね
 ```console
 composer install
-php artisan cache:clear
-php artisan config:cache
+php artisan optimize:clear
 composer install
-php artisan migrate
-php artisan db:seed
+php artisan migrate:fresh --seed
 php artisan serve
 ```
 
