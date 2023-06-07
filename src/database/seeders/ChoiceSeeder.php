@@ -16,37 +16,37 @@ class ChoiceSeeder extends Seeder
         //
         $choices = [[
             'question_id' => 1,
-            'name' => 'Manila',
+            'name' => 'あさか',
             'valid' => 1,
             'created_at' => now(),
             'updated_at' => now(),
         ], [
             'question_id' => 1,
-            'name' => 'Tokyo',
+            'name' => 'うみうみ',
             'valid' => 0,
             'created_at' => now(),
             'updated_at' => now(),
         ], [
             'question_id' => 1,
-            'name' => 'Osaka',
+            'name' => 'そうたつ',
             'valid' => 0,
             'created_at' => now(),
             'updated_at' => now(),
         ], [
             'question_id' => 2,
-            'name' => 'London',
+            'name' => '中２',
+            'valid' => 0,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ], [
+            'question_id' => 2,
+            'name' => '中３',
             'valid' => 1,
             'created_at' => now(),
             'updated_at' => now(),
         ], [
             'question_id' => 2,
-            'name' => 'Tokyo',
-            'valid' => 0,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ], [
-            'question_id' => 2,
-            'name' => 'New York',
+            'name' => '高２',
             'valid' => 0,
             'created_at' => now(),
             'updated_at' => now(),

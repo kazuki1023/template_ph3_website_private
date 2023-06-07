@@ -16,16 +16,16 @@ class QuestionSeeder extends Seeder
         //
         $questions = [
             [
-                'content' => 'What is the biggest city of the Philippines?',
-                'image' => "sample.png",
-                'supplement' => 'Manila is the second biggest city of the Philippines.',
+                'content' => 'この中で一緒の縦モクになったことない人は誰？',
+                'image' => "sample1.jpg",
+                'supplement' => '夏のDXなつかし〜',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'content' => 'What is the biggest city of Japan?',
-                'image' => "sample.png",
-                'supplement' => 'Osaka is the second biggest city of Japan.',
+                'content' => 'dukkenとかずは同じ中高ですが、そんなdukkenと初めてクラスが一緒になったのはいつ？',
+                'image' => "sample2.jpg",
+                'supplement' => 'シンハ運営の時代',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
