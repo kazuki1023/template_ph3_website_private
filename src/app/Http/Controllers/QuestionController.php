@@ -66,7 +66,6 @@ class QuestionController extends Controller
     {
         return view('admin.create');
     }
-
     // 問題を作成する
     public function store(Request $request)
     {
@@ -84,13 +83,12 @@ class QuestionController extends Controller
 
             $imageExtension = $heroImage->getClientOriginalExtension();
             $imagePathHero =  uniqid() . "." . $imageExtension;
-            Storage::disk('public')->put("img/questions" . $heroImage, $imagePathHero, 'public');
+            Storage::disk('public')->put("img/questions/" . $imagePathHero, File::get($heroImage));
 
             // 保存した画像パスをデータベースに保存
             $question->image = $imagePathHero;
         }
         $question->save();
-
 
         $choices = [];
         $selectedChoiceId = $request->input('list-radio');

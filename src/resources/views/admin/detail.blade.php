@@ -50,7 +50,7 @@
                         画像
                     </th>
                     <td class="px-6 py-4">
-                        {{ $question->image }}
+                        <img src="{{ asset('/storage/img/questions/' . $question->image)}}">
                     </td>
                 </tr>
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
