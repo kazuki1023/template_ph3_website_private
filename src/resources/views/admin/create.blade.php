@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <form action="http://localhost/admin/store" method="POST" enctype="multipart/form-data">
+    <form action="{{ route("admin.store")}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-4 mt-3">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -128,7 +128,7 @@
         <div class="content-center mt-2 flex justify-center">
             <button type="submit"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                onclick="location.href='http://localhost/admin/update/">作成する</button>
+                onclick="location.href={{ route('admin.create')}}">作成する</button>
         </div>
     </form>
 @endsection
