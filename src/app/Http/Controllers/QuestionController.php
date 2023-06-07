@@ -31,6 +31,7 @@ class QuestionController extends Controller
     {
         $question = Question::find($id);
         $question->delete();
+        session()->flash("successDelete", "問題の削除に成功しました");
         return redirect()->route('admin');
     }
 
