@@ -38,8 +38,8 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::find($id);
-        $choices = $question->choices;
-        return view('admin.edit', ['question' => $question, 'choices' => $choices]);
+        $question_with_choices=Question::with('choices')->find($id);
+        return view('admin.edit', ['question' => $question_with_choices]);
     }
 
     // 問題を更新する

@@ -37,7 +37,7 @@
                             </div>
                         </td>
                     </tr>
-                    @foreach ($choices as $i => $choice)
+                    @foreach ($question->choices as $i => $choice)
                         <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <th scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -64,7 +64,7 @@
                         <td class="px-6 py-4">
                             <ul
                                 class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                                @foreach($choices as $i => $choice)
+                                @foreach($question->choices as $i => $choice)
                                 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                                     <div class="flex items-center pl-3">
                                         <input id="horizontal-list-radio-license-{{ $i + 1}}" type="radio" value="{{ $choice->id }}"
