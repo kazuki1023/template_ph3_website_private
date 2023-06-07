@@ -89,7 +89,6 @@ class QuestionController extends Controller
         $question->supplement = $request->supplement;
         // 画像をアップロード
         $heroImage = $request->file("image");
-        dd($heroImage);
 
         if ($heroImage) {
             $dirPathHero = storage_path("app/public/img/questions");
@@ -116,6 +115,7 @@ class QuestionController extends Controller
             $choice->save();
             $choices[] = $choice;
         }
+        session()->flash('successCreate', '問題の作成に成功しました');
         return redirect()->route('admin', ['question' => $question, 'choices' => $choices]);
     }
 }
