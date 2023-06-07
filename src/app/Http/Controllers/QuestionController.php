@@ -72,7 +72,8 @@ class QuestionController extends Controller
             $choice->valid = $choice->id == $request->input('list-radio') ? 1 : 0;
             $choice->save();
         }
-        // 正解の選択肢を更新する
+        session()->flash('successUpdate', '問題の更新に成功しました');
+        // 詳細ページにリダイレクト
         return redirect()->route('admin.detail', ['id' => $id]);
     }
 
