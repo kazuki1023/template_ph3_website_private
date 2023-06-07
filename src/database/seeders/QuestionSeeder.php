@@ -29,6 +29,13 @@ class QuestionSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'content' => 'posse1で付き合うなら誰？って聞かれた時にいつも答えてる人は誰？',
+                'image' => "sample3.jpg",
+                'supplement' => 'これいつの写真？',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ];
         DB::table('questions')->insert($questions);
     }

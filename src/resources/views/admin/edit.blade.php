@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <form action="http://localhost/admin/update/{{ $question->id }}" method="POST">
+    <form action="http://localhost/admin/update/{{ $question->id }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-4 mt-3">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

@@ -50,6 +50,24 @@ class ChoiceSeeder extends Seeder
             'valid' => 0,
             'created_at' => now(),
             'updated_at' => now(),
+        ], [
+            'question_id' => 3,
+            'name' => 'ななみん',
+            'valid' => 0,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ], [
+            'question_id' => 3,
+            'name' => 'うみうみ',
+            'valid' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ], [
+            'question_id' => 3,
+            'name' => 'ちよちゃん',
+            'valid' => 0,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]];
         DB::table("choices")->insert($choices);
     }

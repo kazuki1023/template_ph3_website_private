@@ -24,10 +24,6 @@
                         <th scope="col" class="px-6 py-3">
                             詳細
                         </th>
-                        <th scope="col" class="px-6 py-3" data-modal-target="defaultModal"
-                            data-modal-toggle="defaultModal">
-                            削除
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,11 +39,6 @@
                             <td class="px-6 py-4">
                                 <a href="http://localhost/admin/detail/{{ $question->id }}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">詳細</a>
-                            </td>
-                            <td class="px-6 py-4">
-                                <button type="button" class="font-medium text-red-600 dark:text-red-500 hover:underline"
-                                    data-modal-target="defaultModal" data-modal-toggle="defaultModal"
-                                    data-problem-id="{{ $question->id }}">削除</button>
                             </td>
                         </tr>
                     @endforeach

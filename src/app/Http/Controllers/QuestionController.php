@@ -48,7 +48,22 @@ class QuestionController extends Controller
         $question = Question::find($id);
         $question->content = $request->content;
         $question->supplement = $request->supplement;
-        // $question->updated_at = $request-;
+        // 画像をアップロード
+        $heroImage = $request->file("image");
+
+        if ($heroImage) {
+            $dirPathHero = storage_path("app/public/img/questions");
+            if (!File::exists($dirPathHero)) {
+                File::makeDirectory($dirPathHero, 0777, true);
+            }
+
+            $imageExtension = $heroImage->getClientOriginalExtension();
+            $imagePathHero =  uniqid() . "." . $imageExtension;
+            Storage::disk('public')->put("img/questions/" . $imagePathHero, File::get($heroImage));
+
+            // 保存した画像パスをデータベースに保存
+            $question->image = $imagePathHero;
+        }
         $question->save();
 
         $choices = $question->choices;
@@ -74,6 +89,7 @@ class QuestionController extends Controller
         $question->supplement = $request->supplement;
         // 画像をアップロード
         $heroImage = $request->file("image");
+        dd($heroImage);
 
         if ($heroImage) {
             $dirPathHero = storage_path("app/public/img/questions");
