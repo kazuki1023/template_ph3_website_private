@@ -76,20 +76,16 @@ docker-compose exec phpfpm bash
 
 以下は、bashでrootの中に入ったと思うので、そこで実行してね
 ```console
+npm install
 composer install
 php artisan optimize:clear
-composer install
-php artisan migrate:fresh --seed
-php artisan serve
+php artisan migrate --seed
+npm run build
 ```
 
-npm install を実行してから
-srcディレクトリで npm run dev を実行した後にlocalhostにアクセスすると表示されます
+## 以下のURLにアクセスして、画面が表示されたら成功です
+http://localhost
 
-control + D で抜けられます。
-
-これらを全てした上でlocalhostにいく
-chromeのリンク書くところにlocalhostって入れてもらえれば大丈夫です！
 
 ## commit命名規則
 以下に従ってやろ
