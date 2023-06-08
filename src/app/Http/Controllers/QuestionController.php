@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Question;
+use Illuminate\Support\Facades\Validator;
 use App\Models;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,7 @@ class QuestionController extends Controller
     public function detail($id)
     {
         $question = Question::find($id);
-        $question_with_choices=Question::with('choices')->find($id);
+        $question_with_choices = Question::with('choices')->find($id);
         return view('admin.detail', ['question' => $question_with_choices]);
     }
 
@@ -39,13 +40,34 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::find($id);
-        $question_with_choices=Question::with('choices')->find($id);
+        $question_with_choices = Question::with('choices')->find($id);
         return view('admin.edit', ['question' => $question_with_choices]);
     }
 
     // 問題を更新する
     public function update($id, Request $request)
     {
+        // バリデーション作成
+        $rules = [
+            'content' => 'required|max:255',
+            'supplement' => 'max:255',
+            'choice1' => 'max:255',
+            'choice2' => 'max:255',
+            'choice3' => 'max:255',
+        ];
+        $messages = [
+            'content.required' => '問題文を入力してください',
+            'content.max' => '問題文は255文字以内で入力してください',
+            'supplement.max' => '補足文は255文字以内で入力してください',
+            'choice1.max' => '選択肢1は255文字以内で入力してください',
+            'choice2.max' => '選択肢2は255文字以内で入力してください',
+            'choice3.max' => '選択肢3は255文字以内で入力してください',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            // バリデーションエラーが発生した場合の処理
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $question = Question::find($id);
         $question->content = $request->content;
         $question->supplement = $request->supplement;
@@ -75,7 +97,7 @@ class QuestionController extends Controller
         }
         session()->flash('successUpdate', '問題の更新に成功しました');
         // 詳細ページにリダイレクト
-        return redirect()->route('admin.detail', ['id' => $id]);
+        return redirect()->route('admin.detail', ['id' => $question->id]);
     }
 
     // 問題作成画面を表示する
@@ -87,14 +109,35 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         // バリデーション作成
-        $request->validate([
+        $rules = [
             'content' => 'required|max:255',
-            'supplement' => 'required|max:255',
+            'supplement' => 'max:255',
             'image' => 'required|file|image|mimes:jpeg,png,jpg|max:1024',
             'choice1' => 'required|max:255',
             'choice2' => 'required|max:255',
             'choice3' => 'required|max:255',
-        ]);
+        ];
+        $messages = [
+            'content.required' => '問題文を入力してください',
+            'content.max' => '問題文は255文字以内で入力してください',
+            'supplement.max' => '補足文は255文字以内で入力してください',
+            'image.required' => '画像を選択してください',
+            'image.file' => '画像を選択してください',
+            'image.image' => '画像を選択してください',
+            'image.mimes' => '画像はjpeg,png,jpg形式で選択してください',
+            'image.max' => '画像は1MB以内で選択してください',
+            'choice1.required' => '選択肢1を入力してください',
+            'choice1.max' => '選択肢1は255文字以内で入力してください',
+            'choice2.required' => '選択肢2を入力してください',
+            'choice2.max' => '選択肢2は255文字以内で入力してください',
+            'choice3.required' => '選択肢3を入力してください',
+            'choice3.max' => '選択肢3は255文字以内で入力してください',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            // バリデーションエラーが発生した場合の処理
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $question = new Question();
         $question->content = $request->content;
         $question->supplement = $request->supplement;
