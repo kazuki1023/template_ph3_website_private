@@ -86,6 +86,15 @@ class QuestionController extends Controller
     // 問題を作成する
     public function store(Request $request)
     {
+        // バリデーション作成
+        $request->validate([
+            'content' => 'required|max:255',
+            'supplement' => 'required|max:255',
+            'image' => 'required|file|image|mimes:jpeg,png,jpg|max:1024',
+            'choice1' => 'required|max:255',
+            'choice2' => 'required|max:255',
+            'choice3' => 'required|max:255',
+        ]);
         $question = new Question();
         $question->content = $request->content;
         $question->supplement = $request->supplement;
@@ -106,7 +115,6 @@ class QuestionController extends Controller
             $question->image = $imagePathHero;
         }
         $question->save();
-
         $choices = [];
         $selectedChoiceId = $request->input('list-radio');
         for ($i = 1; $i <= 3; $i++) {
