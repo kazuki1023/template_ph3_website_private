@@ -9,6 +9,7 @@ APP_ENV=local
 APP_KEY=base64:F5Fsngk5KikeTibejhJlh3NPHYn3fxyecf1mj4WZipc=
 APP_DEBUG=true
 APP_URL=http://localhost
+APP_TIMEZONE=Asia/Tokyo
 
 LOG_CHANNEL=stack
 LOG_DEPRECATIONS_CHANNEL=null
@@ -75,22 +76,16 @@ docker-compose exec phpfpm bash
 
 以下は、bashでrootの中に入ったと思うので、そこで実行してね
 ```console
+npm install
 composer install
-php artisan cache:clear
-php artisan config:cache
-composer install
-php artisan migrate
-php artisan db:seed
-php artisan serve
+php artisan optimize:clear
+php artisan migrate --seed
+npm run build
 ```
 
-npm install を実行してから
-srcディレクトリで npm run dev を実行した後にlocalhostにアクセスすると表示されます
+## 以下のURLにアクセスして、画面が表示されたら成功です
+http://localhost
 
-control + D で抜けられます。
-
-これらを全てした上でlocalhostにいく
-chromeのリンク書くところにlocalhostって入れてもらえれば大丈夫です！
 
 ## commit命名規則
 以下に従ってやろ

@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-    <form action="http://localhost/admin/update/{{ $question->id }}" method="POST">
+
+    <form action="{{route('admin.update', $question->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-4 mt-3">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -31,13 +32,18 @@
                         </th>
                         <td class="px-6 py-4">
                             <div class="">
+                                @error('content')
+                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <span class="font-medium">エラー!</span> {{ $message }}
+                                </div>
+                                @enderror
                                 <input type="text" id="default-input"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    value="{{ $question->content }}" name="content">
+                                    value="{{ $question->content }}" name="content" required="required">
                             </div>
                         </td>
                     </tr>
-                    @foreach ($choices as $i => $choice)
+                    @foreach ($question->choices as $i => $choice)
                         <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <th scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -51,6 +57,11 @@
                                 @endif
                             </th>
                             <td class="px-6 py-4">
+                                @error('choice{{ $i + 1 }}')
+                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <span class="font-medium">エラー!</span> {{ $message }}
+                                </div>
+                                @enderror
                                 <input type="text" id="default-input"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     value="{{ $choice->name }}" name="choice{{ $choice->id }}">
@@ -64,18 +75,18 @@
                         <td class="px-6 py-4">
                             <ul
                                 class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                                @foreach($choices as $i => $choice)
-                                <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                                    <div class="flex items-center pl-3">
-                                        <input id="horizontal-list-radio-license-{{ $i + 1}}" type="radio" value="{{ $choice->id }}"
-                                            name="list-radio"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                                            @if($choice->valid == 1) checked @endif
-                                            >
-                                        <label for="horizontal-list-radio-license-{{ $i + 1}}"
-                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">選択肢{{ $i + 1}}</label>
-                                    </div>
-                                </li>
+                                @foreach ($question->choices as $i => $choice)
+                                    <li
+                                        class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                                        <div class="flex items-center pl-3">
+                                            <input id="horizontal-list-radio-license-{{ $i + 1 }}" type="radio"
+                                                value="{{ $choice->id }}" name="list-radio"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                                @if ($choice->valid == 1) checked @endif>
+                                            <label for="horizontal-list-radio-license-{{ $i + 1 }}"
+                                                class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">選択肢{{ $i + 1 }}</label>
+                                        </div>
+                                    </li>
                                 @endforeach
                             </ul>
                         </td>
@@ -86,9 +97,18 @@
                         </th>
                         <td class="px-6 py-4">
                             <div class="">
-                                <input type="text" id="default-input"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    value="{{ $question->image }}" name="image">
+                                @error('image')
+                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <span class="font-medium">エラー!</span> {{ $message }}
+                                </div>
+                                @enderror
+                                <img src="{{ asset('/storage/img/questions/' . $question->image) }}">
+                                <input
+                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 upload-limit"
+                                    id="file_input" type="file" name="image" accept=".jpg, .svg, .png"
+                                    placeholder="1MG以下の写真しか対応してません">
+                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, or
+                                    JPG .</p>
                             </div>
                         </td>
                     </tr>
@@ -98,6 +118,11 @@
                         </th>
                         <td class="px-6 py-4">
                             <div class="">
+                                @error('supplement')
+                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <span class="font-medium">エラー!</span> {{ $message }}
+                                </div>
+                                @enderror
                                 <input type="text" id="default-input"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     value="{{ $question->supplement }}" name="supplement">
