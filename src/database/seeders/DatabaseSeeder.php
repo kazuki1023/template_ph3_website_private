@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
                 ChoiceSeeder::class,
                 AdminSeeder::class,
                 AdminInvitationsSeeder::class,
+                UserSeeder::class,
             ]);
     }
 }
