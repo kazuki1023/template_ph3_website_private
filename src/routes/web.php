@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/admin/invitations', [AdminInvitationsController::class, 'index'])->name('admin.invitations');
 });
 
 require __DIR__.'/auth.php';
@@ -66,7 +67,4 @@ Route::get('/admin/create', function () {
 // 問題を作成する時のルート
 Route::post('/admin/store', [QuestionController::class, 'store'] )->name('admin.store');
 
-// 管理者ページのログインページのルート
-Route::get('/admin/login', function () {
-    return view('admin/login');
-})->name('admin.login');
+// 管理者追加ページのルート
