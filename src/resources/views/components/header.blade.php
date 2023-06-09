@@ -11,7 +11,7 @@
           <a href="{{ route("quiz")}}" class="p-header__nav__item__link">クイズ</a>
         </li>
         <li class="p-header__nav__item">
-          <a href="{{ route("admin")}}" class="p-header__nav__item__link">管理者用</a>
+          <a href="{{ route("login")}}" class="p-header__nav__item__link">管理者用</a>
         </li>
       </ul>
     </nav>
