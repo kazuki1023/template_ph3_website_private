@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\AdminInvitationsController;
+use App\Http\Controllers\AUTH\RegisteredUserController;
 
 
 /*
@@ -29,7 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/admin/invitations', [AdminInvitationsController::class, 'index'])->name('admin.invitations');
 });
 
 require __DIR__.'/auth.php';
@@ -68,3 +68,5 @@ Route::get('/admin/create', function () {
 Route::post('/admin/store', [QuestionController::class, 'store'] )->name('admin.store');
 
 // 管理者追加ページのルート
+Route::get('/register', [AdminInvitationsController::class, 'index'])->middleware(['auth'])->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store'])->middleware(['auth'])->name('register.store');
