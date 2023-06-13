@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         // ユーザーのシーディング処理を記述する
         DB::table('users')->insert([
             'name' => '管理者１',
-            'email' => 'admin@example.com',
+            'email' => 'admin1@example.com',
             'password' => bcrypt('password'),
             'created_at' => now(),
             'updated_at' => now(),
