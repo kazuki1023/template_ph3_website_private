@@ -11,7 +11,7 @@
     @endforeach --}}
 
     @if (session('successCreate'))
-        <div id="alert-1" class="flex p-4 mb-4 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 mx-4 mt-3"
+        <div id="alert-1" class="flex p-4 mb-4 text-blue-800 rounded-lg bg-blue-50 mx-4 mt-3"
             role="alert">
             <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +24,7 @@
                 {{ session('successCreate') }}
             </div>
             <button type="button"
-                class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700"
+                class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8"
                 data-dismiss-target="#alert-1" aria-label="Close">
                 <span class="sr-only">Close</span>
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -37,7 +37,7 @@
         </div>
     @endif
     @if (session('successDelete'))
-        <div id="alert-2" class="flex p-4 mb-6 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 mx-4 mt-3"
+        <div id="alert-2" class="flex p-4 mb-6 text-red-800 rounded-lg bg-red-50 mx-4 mt-3"
             role="alert">
             <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +50,7 @@
                 {{ session('successDelete') }}
             </div>
             <button type="button"
-                class="ml-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
+                class="ml-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8"
                 data-dismiss-target="#alert-2" aria-label="Close">
                 <span class="sr-only">Close</span>
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@
 
         @if ($questions->count() > 0)
             <table class=" text-sm text-left text-gray-500 w-full ">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             問題番号
@@ -80,9 +80,9 @@
                 </thead>
                 <tbody>
                     @foreach ($questions as $question)
-                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        <tr class="bg-white border-b">
                             <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{ $question->id }}
                             </th>
                             <td class="px-6 py-4">
@@ -90,7 +90,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <a href="{{ route('admin.detail', ['id' => $question->id]) }}"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">詳細</a>
+                                    class="font-medium text-blue-600 hover:underline">詳細</a>
                             </td>
                         </tr>
                     @endforeach
@@ -101,14 +101,14 @@
                 class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative w-full max-w-2xl max-h-full">
                     <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div class="relative bg-white rounded-lg shadow">
                         <!-- Modal header -->
-                        <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        <div class="flex items-start justify-between p-4 border-b rounded-t">
+                            <h3 class="text-xl font-semibold text-gray-900">
                                 以下の問題を削除しますか？
                             </h3>
                             <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
                                 data-modal-hide="defaultModal">
                                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -121,9 +121,9 @@
                         </div>
                         <!-- Modal body -->
                         <div class="p-6 space-y-6">
-                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <table class="w-full text-sm text-left text-gray-500">
                                 <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    class="text-xs text-gray-700 uppercase bg-gray-50">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             項目名
@@ -134,63 +134,63 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <tr class="bg-white border-b">
                                         <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             問題名
                                         </th>
                                         <td class="px-6 py-4">
                                             Silver
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <tr class="bg-white border-b">
                                         <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             問題文
                                         </th>
                                         <td class="px-6 py-4">
                                             {{ $question->content }}
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <tr class="bg-white border-b">
                                         <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             選択肢１
                                         </th>
                                         <td class="px-6 py-4">
                                             選択肢１
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <tr class="bg-white border-b">
                                         <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             選択肢２
                                         </th>
                                         <td class="px-6 py-4">
                                             選択肢２
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <tr class="bg-white border-b">
                                         <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             選択肢３
                                         </th>
                                         <td class="px-6 py-4">
                                             選択肢３
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <tr class="bg-white border-b">
                                         <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             画像
                                         </th>
                                         <td class="px-6 py-4">
                                             {{ $question->image }}
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                    <tr class="bg-white border-b">
                                         <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             補足
                                         </th>
                                         <td class="px-6 py-4">
@@ -202,20 +202,20 @@
                         </div>
                         <!-- Modal footer -->
                         <div
-                            class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                            class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b">
                             <form action="http://localhost/admin/delete/{{ $question->id }}">
                                 <button data-modal-hide="defaultModal" type="button"
-                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                     type="submit">削除する</button>
                             </form>
                             <button data-modal-hide="defaultModal" type="button"
-                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">削除しない</button>
+                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">削除しない</button>
                         </div>
                     </div>
                 </div>
             </div>
         @else
-            <div class="p-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+            <div class="p-4 text-sm text-blue-800 rounded-lg bg-blue-50"
                 role="alert">
                 <span class="font-medium">注意！</span> 登録されている問題はありません
             </div>

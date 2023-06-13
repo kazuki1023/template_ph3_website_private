@@ -80,6 +80,7 @@ npm install
 composer install
 php artisan optimize:clear
 php artisan migrate --seed
+php artisan serve
 npm run build
 ```
 

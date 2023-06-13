@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- スタイルシート読み込み -->
 <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @vite('resources/css/app.css')
 <!-- Google Fonts読み込み -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
