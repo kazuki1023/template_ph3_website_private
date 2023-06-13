@@ -20,9 +20,7 @@ use App\Http\Controllers\AUTH\RegisteredUserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/admin', [QuestionController::class, 'show'] )->middleware(['auth'])->name('admin');
 
