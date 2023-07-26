@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Testing\Fakes\Fake;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +20,8 @@ class DatabaseSeeder extends Seeder
                 AdminSeeder::class,
                 AdminInvitationsSeeder::class,
                 UserSeeder::class,
+                FakeQuestionSeeder::class,
+                FakeChoiceSeeder::class,
             ]);
     }
 }
