@@ -61,6 +61,7 @@
             </button>
         </div>
     @endif
+    {{ $questions->onEachSide(5)->links() }}
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-4 mt-3">
 
         @if ($questions->count() > 0)

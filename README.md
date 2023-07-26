@@ -78,6 +78,7 @@ docker-compose exec phpfpm bash
 ```console
 npm install
 composer install
+php artisan key:generate
 php artisan optimize:clear
 php artisan migrate --seed
 php artisan serve

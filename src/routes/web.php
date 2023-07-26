@@ -42,29 +42,21 @@ Route::get('/quiz', function () {
     return view('quiz');
 })->name('quiz');
 
-// 管理者ページのルート
-// Route::get('/admin', [QuestionController::class, 'show'] )->name('admin');
-
-// 各問題詳細のルート
-Route::get('/admin/detail/{id}', [QuestionController::class, 'detail'] )->name('admin.detail');
-
-// 詳細画面で削除する時のルート
-Route::get('/admin/delete/{id}', [QuestionController::class, 'delete'] )->name('admin.delete');
-
-// 詳細画面で編集する時のルート
-Route::get('/admin/edit/{id}', [QuestionController::class, 'edit'] )->name('admin.edit');
-
-// 詳細画面で更新する時のルート
-Route::post('/admin/update/{id}', [QuestionController::class, 'update'] )->name('admin.update');
-
-// 問題作成画面のルート
-Route::get('/admin/create', function () {
-    return view('admin.create');
-})->name('admin.create');
-
-// 問題を作成する時のルート
-Route::post('/admin/store', [QuestionController::class, 'store'] )->name('admin.store');
 
 // 管理者追加ページのルート
 Route::get('/register', [AdminInvitationsController::class, 'index'])->middleware(['auth'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware(['auth'])->name('register.store');
+
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/detail/{id}', [QuestionController::class, 'detail'])->name('detail');
+    Route::get('/delete/{id}', [QuestionController::class, 'delete'])->name('delete');
+    Route::get('/edit/{id}', [QuestionController::class, 'edit'])->name('edit');
+    Route::get('/update/{id}', [QuestionController::class, 'update'])->name('update');
+    Route::get('/create', function () {
+        return view('admin.create');
+    })->name('create');
+    Route::post('/store', [QuestionController::class, 'store'])->name('store');
+});
+
+
