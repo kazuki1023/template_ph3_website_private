@@ -15,7 +15,7 @@ class QuestionController extends Controller
     //問題一覧を表示する
     public function show()
     {
-        $questions = Question::all();
+        $questions = Question::paginate(15);
         return view('admin.index', ['questions' => $questions]);
     }
 
