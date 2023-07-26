@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Question;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Choice>
@@ -16,11 +18,10 @@ class ChoiceFactory extends Factory
      */
     public function definition()
     {
-        static $index = 3;
         return [
-            'question_id' => $index++,
-            'name' => fake()->text(),
-            'valid' => fake()->randomElement([0, 0, 1]), 
+            'question_id' => Question::factory(),
+            'name' => $this->faker->word,
+            'valid' => $this->faker->numberBetween(0, 1),
         ];
     }
 }

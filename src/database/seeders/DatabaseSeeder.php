@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
                 AdminInvitationsSeeder::class,
                 UserSeeder::class,
                 FakeQuestionSeeder::class,
-                FakeChoiceSeeder::class,
             ]);
     }
 }
