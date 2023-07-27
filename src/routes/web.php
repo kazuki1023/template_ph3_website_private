@@ -38,9 +38,7 @@ Route::get('/', function () {
 })->name('index');
 
 // quizページのルート
-Route::get('/quiz', function () {
-    return view('quiz');
-})->name('quiz');
+Route::get('/quiz', [QuestionController::class, 'show'])->name('quiz');
 
 
 // 管理者追加ページのルート
