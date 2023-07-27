@@ -24,14 +24,15 @@
         <!-- /.p-hero .p-quiz-hero -->
 
         <div class="p-quiz-container l-container">
-            <section class="p-quiz-box js-quiz" data-quiz="0">
+          @foreach($questions as $index => $question)
+            <section class="p-quiz-box js-quiz" data-quiz="{{ $question->id}}">
                 <div class="p-quiz-box__question">
                     <h2 class="p-quiz-box__question__title">
-                        <span class="p-quiz-box__label">Q1</span>
-                        <span class="p-quiz-box__question__title__text">日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？</span>
+                        <span class="p-quiz-box__label">Q{{ $question->id}}</span>
+                        <span class="p-quiz-box__question__title__text">{{ $question -> content}}</span>
                     </h2>
                     <figure class="p-quiz-box__question__image">
-                        <img src="../assets/img/quiz/img-quiz01.png" alt="">
+                        <img src="{{ asset('/storage/img/questions/' . $question->image) }}" alt="">
                     </figure>
                 </div>
                 <div class="p-quiz-box__answer">
@@ -39,7 +40,7 @@
                     <ul class="p-quiz-box__answer__list">
                         <li class="p-quiz-box__answer__item">
                             <button class="p-quiz-box__answer__button js-answer" data-answer="0">
-                                約28万人<i class="u-icon__arrow"></i>
+                                <i class="u-icon__arrow"></i>
                             </button>
                         </li>
                         <li class="p-quiz-box__answer__item">
@@ -65,9 +66,7 @@
                     <i class="u-icon__note"></i>経済産業省 2019年3月 － IT 人材需給に関する調査
                 </cite>
             </section>
-            <!-- ./p-quiz-box -->
-
-            <!-- ./p-quiz-box -->
+            @endforeach
         </div>
         <!-- /.l-container .p-quiz-container -->
     </main>
