@@ -38,21 +38,13 @@
                 <div class="p-quiz-box__answer">
                     <span class="p-quiz-box__label p-quiz-box__label--accent">A</span>
                     <ul class="p-quiz-box__answer__list">
+                      @foreach($question->choices as $index => $choice)
                         <li class="p-quiz-box__answer__item">
                             <button class="p-quiz-box__answer__button js-answer" data-answer="0">
-                                <i class="u-icon__arrow"></i>
+                                {{$choice -> name}}<i class="u-icon__arrow"></i>
                             </button>
                         </li>
-                        <li class="p-quiz-box__answer__item">
-                            <button class="p-quiz-box__answer__button js-answer" data-answer="1">
-                                約79万人<i class="u-icon__arrow"></i>
-                            </button>
-                        </li>
-                        <li class="p-quiz-box__answer__item">
-                            <button class="p-quiz-box__answer__button js-answer" data-answer="2">
-                                約183万人<i class="u-icon__arrow"></i>
-                            </button>
-                        </li>
+                      @endforeach
                     </ul>
                     <div class="p-quiz-box__answer__correct js-answerBox">
                         <p class="p-quiz-box__answer__correct__title js-answerTitle"></p>
