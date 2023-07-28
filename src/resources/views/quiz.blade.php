@@ -5,7 +5,6 @@
     @include('components.head')
     <title>POSSE QUIZ</title>
     <script src="https://kit.fontawesome.com/dadd574598.js" crossorigin="anonymous" defer></script>
-    <script src="{{ asset('js/quiz.js') }}"></script>
 </head>
 
 <body>
@@ -59,7 +58,7 @@
                     </div>
                 </div>
                 <cite class="p-quiz-box__note">
-                    <i class="u-icon__note"></i>経済産業省 2019年3月 － IT 人材需給に関する調査
+                    <i class="u-icon__note"></i>{{ $question->supplement }}
                 </cite>
             </section>
             @endforeach
@@ -73,7 +72,7 @@
 
     @include('components.footer')
     <!-- /.l-footer .p-footer -->
-
+    <script src="{{ asset('js/quiz.js') }}"></script>
 </body>
 
 </html>
