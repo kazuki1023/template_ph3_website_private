@@ -4,6 +4,7 @@
 <head>
     @include('components.head')
     <title>POSSE QUIZ</title>
+    <script src="https://kit.fontawesome.com/dadd574598.js" crossorigin="anonymous" defer></script>
     <script src="{{ asset('js/quiz.js') }}"></script>
 </head>
 
@@ -23,6 +24,9 @@
         </section>
         <!-- /.p-hero .p-quiz-hero -->
 
+        <div class="flex justify-center">
+            {{ $questions->links() }}
+        </div>
         <div class="p-quiz-container l-container">
           @foreach($questions as $index => $question)
             <section class="p-quiz-box js-quiz" data-quiz="{{ $question->id}}">
