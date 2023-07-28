@@ -4,6 +4,7 @@
 <head>
     @include('components.head')
     <title>POSSE QUIZ</title>
+    <script src="https://kit.fontawesome.com/dadd574598.js" crossorigin="anonymous" defer></script>
     <script src="{{ asset('js/quiz.js') }}"></script>
 </head>
 
