@@ -24,6 +24,9 @@
         </section>
         <!-- /.p-hero .p-quiz-hero -->
 
+        <div class="flex justify-center">
+            {{ $questions->links() }}
+        </div>
         <div class="p-quiz-container l-container">
           @foreach($questions as $index => $question)
             <section class="p-quiz-box js-quiz" data-quiz="{{ $question->id}}">
