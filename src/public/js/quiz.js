@@ -33,10 +33,11 @@
         setDisabled(answers);
 
         // 正解ならtrue, 不正解ならfalseをcheckCorrectに格納
-        const isCorrect = Number(answer.getAttribute('data-correct')) === 1;
+        const isCorrect = Number(answer.getAttribute('data-answer')) === 1;
 
         // 回答欄にテキストやclass名を付与
-        answerText.innerText = quiz.querySelector('[data-correct="1"]').innerText
+        console.log(quiz.querySelectorAll('[data-answer="1"]'))
+        answerText.innerText = quiz.querySelector('[data-answer="1"]').innerText
         setTitle(answerTitle, isCorrect);
         setClassName(answerBox, isCorrect);
       })
