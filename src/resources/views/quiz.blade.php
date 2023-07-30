@@ -43,7 +43,7 @@
                     <ul class="p-quiz-box__answer__list">
                       @foreach($question->choices as $index => $choice)
                         <li class="p-quiz-box__answer__item">
-                            <button class="p-quiz-box__answer__button js-answer" data-answer="0">
+                            <button class="p-quiz-box__answer__button js-answer" data-answer="{{ $choice -> valid}}">
                                 {{$choice -> name}}<i class="u-icon__arrow"></i>
                             </button>
                         </li>
