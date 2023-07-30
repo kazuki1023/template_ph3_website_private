@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/detail/{id}', [QuestionController::class, 'detail'])->name('detail');
     Route::delete('/delete/{id}', [QuestionController::class, 'delete'])->name('delete');
     Route::get('/edit/{id}', [QuestionController::class, 'edit'])->name('edit');
-    Route::get('/update/{id}', [QuestionController::class, 'update'])->name('update');
+    Route::patch('/update/{id}', [QuestionController::class, 'update'])->name('update');
     Route::get('/create', function () {
         return view('admin.create');
     })->name('create');

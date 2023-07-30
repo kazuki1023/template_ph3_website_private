@@ -36,6 +36,15 @@
         }
         return confirmDelete;
     }
+    // 更新ボタンがクリックされたときの処理
+    function updatedConfirm() {
+        let confirmUpdated = confirm('本当に更新しますか？');
+        if (!confirmUpdated) {
+            // prevent form submission if the user clicked "cancel" on the alert
+            event.preventDefault();
+        }
+        return confirmUpdated;
+    }
 </script>
 
 </html>
