@@ -6,7 +6,7 @@
 ```console
 APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=base64:F5Fsngk5KikeTibejhJlh3NPHYn3fxyecf1mj4WZipc=
+APP_KEY=
 APP_DEBUG=true
 APP_URL=http://localhost
 APP_TIMEZONE=Asia/Tokyo
