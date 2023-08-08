@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\AdminInvitationsController;
 use App\Http\Controllers\AUTH\RegisteredUserController;
@@ -38,9 +39,7 @@ Route::get('/', function () {
 })->name('index');
 
 // quizページのルート
-Route::get('/quiz', function () {
-    return view('quiz');
-})->name('quiz');
+Route::get('/quiz', [QuizController::class, 'show'])->name('quiz');
 
 
 // 管理者追加ページのルート

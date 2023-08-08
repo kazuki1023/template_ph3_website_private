@@ -28,10 +28,22 @@
 </body>
 <script>
     // 削除ボタンがクリックされたときの処理
-    function deleteConfirm(url) {
-        if (window.confirm('本当に削除しますか？')) {
-            location.href = url;
+    function deleteConfirm() {
+        let confirmDelete = confirm('本当に削除しますか？');
+        if (!confirmDelete) {
+            // prevent form submission if the user clicked "cancel" on the alert
+            event.preventDefault();
         }
+        return confirmDelete;
+    }
+    // 更新ボタンがクリックされたときの処理
+    function updatedConfirm() {
+        let confirmUpdated = confirm('本当に更新しますか？');
+        if (!confirmUpdated) {
+            // prevent form submission if the user clicked "cancel" on the alert
+            event.preventDefault();
+        }
+        return confirmUpdated;
     }
 </script>
 

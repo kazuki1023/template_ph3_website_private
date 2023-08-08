@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
     <form action="{{ route('admin.update', $question->id) }}" method="POST" enctype="multipart/form-data" class="text-center">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-4 mt-3">
             <table class="w-full text-sm text-left text-gray-500">
@@ -65,11 +66,11 @@
                             </td>
                         </tr>
                     @endforeach
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            正解の選択肢
-                        </th>
-                        <td class="px-6 py-4">
+                <tr class="bg-white border-b">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        正解の選択肢
+                    </th>
+                    <td class="px-6 py-4">
                             <ul
                                 class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex">
                                 @foreach ($question->choices as $i => $choice)
