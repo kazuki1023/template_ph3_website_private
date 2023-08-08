@@ -95,11 +95,12 @@
         <button type="button"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
             onclick="location.href='{{ route('admin.edit', ['id' => $question->id]) }}'">編集する</button>
-        <form action="{!! route('admin.delete', ['id' => $question->id]) !!}" method="POST">
+        <form action="{{ route('admin.delete', $question->id) }}" method="POST" enctype="multipart/form-data"">
             @csrf
             @method('DELETE')
             <button type="submit"
-                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 delete-form"
+                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+
                 onclick="deleteConfirm('{!! route('admin.delete', ['id' => $question->id]) !!}')">削除する</button>
         </form>
     </div>
