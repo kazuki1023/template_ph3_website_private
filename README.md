@@ -93,3 +93,9 @@ http://localhost
 以下に従ってやろ
 ![参考画像](./src/public/img/Screen%20Shot%202023-03-07%20at%2023.43.26.png)
 
+### larastanの実行方法
+```console
+docker-compose exec phpfpm bash
+./vendor/bin/phpstan analyse app/Http
+```
+
